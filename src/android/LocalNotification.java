@@ -23,6 +23,7 @@
 
 package de.appplant.cordova.plugin.localnotification;
 
+import android.content.Intent;
 import android.app.Activity;
 
 import org.apache.cordova.CallbackContext;
@@ -71,6 +72,7 @@ public class LocalNotification extends CordovaPlugin {
     @Override
     public void initialize (CordovaInterface cordova, CordovaWebView webView) {
         LocalNotification.webView = super.webView;
+        cordova.getActivity().startService(new Intent(cordova.getActivity(), LocalNotificationService.class));
     }
 
     /**
